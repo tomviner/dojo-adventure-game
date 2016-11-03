@@ -1,4 +1,4 @@
-from adventurelib import Item, Bag
+from adventurelib import Item, Bag, when
 
 
 class Man(Item):
@@ -14,7 +14,7 @@ class Woman(Item):
 dr_black = the_victim = Man('Dr. Black', 'Dr Black', 'the victim')
 dr_black.def_name = 'the victim'
 dr_black.description = """\
-Dr. Black was the much beloved host and owner of Tudor Close. His untimely
+Dr. Black was the much beloved host and owner of Albermore Manor. His untimely
  death has come as a shock and surprise to most of tonight's guests."""
 
 miss_scarlet = Woman('Miss Scarlet')
@@ -42,11 +42,18 @@ mrs_peacock.def_name = 'Mrs. Peacock'
 prof_plum = Man('Professor Plum', 'Prof. Plum', 'Prof Plum')
 prof_plum.def_name = 'Prefessor Plum'
 
-everyone = Bag([
+guests = Bag([
     miss_scarlet, col_mustard, mrs_white, rev_green, mrs_peacock, prof_plum
 ])
 
 
+@when('list guests')
+def list_rooms():
+    print("A nearby guest list for tonight's gathering has the following names:")
+    for c in guests:
+        print(c)
+
+
 if __name__ == '__main__':
-    assert prof_plum == everyone.find('Prof. Plum')
-    assert prof_plum != everyone.find('Plum')
+    assert prof_plum == guests.find('Prof. Plum')
+    assert prof_plum != guests.find('Plum')
