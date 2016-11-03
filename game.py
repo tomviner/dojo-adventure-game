@@ -24,23 +24,27 @@ def my_room():
 @when('go to ROOM')
 @when('go to the ROOM')
 def to_room(room):
-    if room in rooms.rooms:
+    global current_location
+    r = rooms.rooms.find(room)
+    if current_location == r:
+        print("I am already in %s" % room)
+    elif r:
         print("I am now in %s" % room)
-        global current_location
-        current_location = room
+        current_location = r
     else:
         print("I can't find the %s" % room)
 
-@when('it was M')
-def accuse(m):
-    if m == murderer:
-        print ("Yes, %s is the murderer!" % m)
+@when('it was PERSON')
+def accuse(person):
+    p = people.find(person)
+    if p == murderer:
+        print ("Yes, %s is the murderer!" % p)
         exit
     else:
-        if m in people:
-            print ("%s said: 'How could you!'" % m)
+        if p:
+            print ("%s said: 'How could you!'" % p)
         else:
-            print ("No one has ever heard of '%s'!" % m)
+            print ("No one has ever heard of '%s'!" % person)
 
 
 start()

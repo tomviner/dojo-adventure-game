@@ -55,7 +55,7 @@ Mrs. Peacock commands the respect of all she meets. She is the eldest and
 """
 
 prof_plum = Man('Professor Plum', 'Prof. Plum', 'Prof Plum')
-prof_plum.def_name = 'Prefessor Plum'
+prof_plum.def_name = 'Professor Plum'
 prof_plum.description = """\
 Professor Plum is young for a professor, and very ambitious. His latest
  academic paper was widely and loudly critised by the victim.
