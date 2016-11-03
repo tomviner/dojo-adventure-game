@@ -37,12 +37,23 @@ def accuse(person):
     p = people.find(person)
     if p == murderer:
         print ("Yes, %s is the murderer!" % p)
-        exit
+        exit()
     else:
         if p:
             print ("%s said: 'How could you!'" % p)
         else:
             print ("No one has ever heard of '%s'!" % person)
+
+@when('in the ROOM')
+def locate(room):
+    r = rooms.rooms.find(room)
+    if murder_location == r:
+        print("Yes, the murder happpened in %s" % room)
+        exit()
+    elif r:
+        print("No, there was no murder in the %s" % room)
+    else:
+        print("Never heard of the %s" % room)
 
 
 start()
