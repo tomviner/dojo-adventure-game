@@ -27,20 +27,39 @@ col_mustard = Man('Colonel Mustard', 'Col. Mustard', 'Col Mustard')
 col_mustard.def_name = 'Colonel Mustard'
 col_mustard.description = """\
 The Colonel is a stern man who accepts no "nonsense". His long and esteemed
- military career has left him with"""
+ military career has left him with a stiff upper lip and a stiffer drinking
+ problem"""
 
 mrs_white = Woman('Mrs. White', 'Mrs White')
 mrs_white.def_name = 'Mrs. White'
+mrs_white.description = """\
+Mrs. White is usually found waiting on the Manor's guests. However tonight she
+ has been invited to dine with the others. She seems frazzled and distressed,
+ she is nervously glancing around the room.
+"""
 
 rev_green = Man(
     'Reverend Green', 'Rev. Green', 'Rev Green', 'Mr. Green', 'Mr Green')
 rev_green.def_name = 'Reverend Green'
+rev_green.description = """\
+Reverend Green is a kindly, wizened old man. Rumour has it that his gambling
+ debts make rich men wince.
+"""
 
 mrs_peacock = Woman('Mrs. Peacock', 'Mrs Peacock')
 mrs_peacock.def_name = 'Mrs. Peacock'
+mrs_peacock.description = """\
+Mrs. Peacock commands the respect of all she meets. She is the eldest and
+ wisest of tonight's guests, her fierce eyes have been known to scare the local
+ children.
+"""
 
 prof_plum = Man('Professor Plum', 'Prof. Plum', 'Prof Plum')
 prof_plum.def_name = 'Prefessor Plum'
+prof_plum.description = """\
+Professor Plum is young for a professor, and very ambitious. His latest
+ academic paper was widely and loudly critised by the victim.
+"""
 
 guests = Bag([
     miss_scarlet, col_mustard, mrs_white, rev_green, mrs_peacock, prof_plum
@@ -48,7 +67,7 @@ guests = Bag([
 
 
 @when('list guests')
-def list_rooms():
+def list_guests():
     print("A nearby guest list for tonight's gathering has the following names:")
     for c in guests:
         print(c)
