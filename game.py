@@ -1,5 +1,8 @@
 import random
 from adventurelib import Item, Bag, when, start
+import rooms
+import characters
+from sys import exit
 
 
 people = '123456'
@@ -37,4 +40,11 @@ def to_room(room):
     else:
         print("I can't find the %s" % room)
 
+@when('it was M')
+def accuse(m):
+    if m == murderer:
+        print ("Yes, %s is the murderer!" % m)
+        exit
+    else:
+        print ("%s said: 'How could you!'" % m)
 start()
