@@ -1,4 +1,6 @@
 import random
+from adventurelib import Item, Bag, when, start
+
 
 people = '123456'
 room = 'abcdef'
@@ -23,3 +25,11 @@ current_location = random.choice(room)
 
 print( current_config_people)
 print( current_location)
+
+@when('where am i')
+def my_room():
+
+    print("I am in: " , current_location)
+
+
+start()
