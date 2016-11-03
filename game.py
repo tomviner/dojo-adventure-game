@@ -1,10 +1,8 @@
 import random
 from characters import guests as people
-from adventurelib import Item, Bag, when, start
+from adventurelib import when, start
 import rooms
-import characters
 from sys import exit
-
 
 
 murder_config_people = list(people)
