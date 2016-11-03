@@ -56,4 +56,11 @@ def locate(room):
         print("Never heard of the %s" % room)
 
 
+@when('describe PERSONORROOM')
+def desc(personorroom):
+    thing = people.find(personorroom) or rooms.rooms.find(personorroom)
+    if thing:
+        print(thing.description)
+
+
 start()
