@@ -28,7 +28,7 @@ current_location = random.choice(rooms)
 
 @when('where am i')
 def my_room():
-    print("I am in: " , current_location)
+    print("I am in: ", current_location)
 
 @when('go to ROOM')
 @when('go to the ROOM')
@@ -46,5 +46,10 @@ def accuse(m):
         print ("Yes, %s is the murderer!" % m)
         exit
     else:
-        print ("%s said: 'How could you!'" % m)
+        if m in people:
+            print ("%s said: 'How could you!'" % m)
+        else:
+            print ("No one has ever heard of '%s'!" % m)
+
+
 start()
