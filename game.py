@@ -3,7 +3,7 @@ from adventurelib import Item, Bag, when, start
 
 
 people = '123456'
-room = 'abcdef'
+rooms = 'abcdef'
 
 # murder configuration
 #  who was where
@@ -15,21 +15,29 @@ room = 'abcdef'
 
 murder_config_people = list(people)
 random.shuffle(murder_config_people)
-murder_location = random.choice(room)
-murderer = people[room.find(murder_location)]
+murder_location = random.choice(rooms)
+murderer = people[rooms.find(murder_location)]
 
 
 current_config_people = list(people)
 random.shuffle(current_config_people)
-current_location = random.choice(room)
+current_location = random.choice(rooms)
 
 print( current_config_people)
 print( current_location)
 
 @when('where am i')
 def my_room():
-
     print("I am in: " , current_location)
 
+@when('go to the ROOM')
+@when('go to ROOM')
+def to_room(room):
+    if room in rooms:
+        print("I am now in %s" % room)
+        global current_location
+        current_location = room
+    else:
+        print("I can't find the %s" % room)
 
 start()
