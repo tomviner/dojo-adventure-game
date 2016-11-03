@@ -23,15 +23,12 @@ current_config_people = list(people)
 random.shuffle(current_config_people)
 current_location = random.choice(rooms)
 
-print( current_config_people)
-print( current_location)
-
 @when('where am i')
 def my_room():
     print("I am in: " , current_location)
 
-@when('go to the ROOM')
 @when('go to ROOM')
+@when('go to the ROOM')
 def to_room(room):
     if room in rooms:
         print("I am now in %s" % room)
