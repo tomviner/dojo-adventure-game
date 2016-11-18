@@ -39,7 +39,7 @@ an elaborate spray of white lilies.
 """
 
 study = Item('study')
-study.description = """\n
+study.description = """\
 The study's dark oak desk is strewn with paperwork, mostly letters.
 
 A fire burns dimly on the west wall. Beside it, an untouched glass of sherry
